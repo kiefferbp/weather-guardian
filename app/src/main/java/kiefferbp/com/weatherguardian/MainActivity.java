@@ -1,6 +1,7 @@
 package kiefferbp.com.weatherguardian;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -81,7 +82,10 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_settings) {
+        if (id == R.id.nav_alerts) {
+            Snackbar.make(findViewById(R.id.toolbar), "This will show the list of active alerts for the current and saved locations.", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+        } else if (id == R.id.nav_settings) {
             Snackbar.make(findViewById(R.id.toolbar), "Settings!", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
         } else if (id == R.id.nav_locations) {
@@ -92,6 +96,10 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_report) {
             Snackbar.make(findViewById(R.id.toolbar), "Development has just begun. Of course there's bugs!", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
+        } else if (id == R.id.nav_email) {
+            Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+            emailIntent.setData(Uri.parse("mailto: brian@bing-pong.com"));
+            startActivity(Intent.createChooser(emailIntent, "Send feedback"));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

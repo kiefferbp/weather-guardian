@@ -3,6 +3,10 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_alerts"
+            android:icon="@drawable/ic_report_problem"
+            android:title="Active Alerts" />
+        <item
             android:id="@+id/nav_locations"
             android:icon="@drawable/ic_location_on"
             android:title="Manage Locations" />
@@ -16,8 +20,12 @@
         <menu>
             <item
                 android:id="@+id/nav_report"
-                android:icon="@drawable/ic_error"
+                android:icon="@drawable/ic_bug_report"
                 android:title="Report an Issue" />
+            <item
+                android:id="@+id/nav_email"
+                android:icon="@drawable/ic_email"
+                android:title="Contact the Developer" />
         </menu>
     </item>
 
